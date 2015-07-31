@@ -211,3 +211,49 @@ var projects = {
 	]
 }
 
+// CREATE THE DISPLAY FUNCTIONS FOR EACH JSON
+// biographical info
+bio.display = function() {
+	// prepend name and role in reverse order so the text appears above #topContacts
+	// job role
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	$("#header").prepend(formattedRole);
+
+	// name
+	var formattedName = HTMLheaderName.replace("%data%", bio.name);
+	$("#header").prepend(formattedName);
+
+	// append bullet items to #topContacts
+	// mobile phone number
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#topContacts").append(formattedMobile);
+
+	// email address
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	$("#topContacts").append(formattedEmail);
+
+	// github id
+	var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+	$("#topContacts").append(formattedGitHub);
+
+	// twitter handle
+	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	$("#topContacts").append(formattedTwitter);
+
+	// location
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	$("#topContacts").append(formattedLocation);
+
+ 	// append picture and welcome message to #topContacts
+	// picture
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+	$("#header").append(formattedBioPic);
+
+	// welcome message
+	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	$("#header").append(formattedWelcomeMessage);
+}
+
+// DISPLAY THE RESUME
+	bio.display();		// biographical data
+
