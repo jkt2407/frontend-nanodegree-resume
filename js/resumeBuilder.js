@@ -244,7 +244,7 @@ bio.display = function() {
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	$("#topContacts").append(formattedLocation);
 
- 	// append picture and welcome message to #topContacts
+ 	// append picture, welcome message and list of skills to #topContacts
 	// picture
 	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 	$("#header").append(formattedBioPic);
@@ -252,6 +252,20 @@ bio.display = function() {
 	// welcome message
 	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 	$("#header").append(formattedWelcomeMessage);
+
+	// skills -- only display if the list of skills is not empty
+	if (bio.skills.length > 0) {
+		// display skill header
+		$("#header").append(HTMLskillsStart);
+
+		// display skills one at a time
+		for (skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			$("#header").append(formattedSkill);
+	}
+}
+
+
 }
 
 // DISPLAY THE RESUME
