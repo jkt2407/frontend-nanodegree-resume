@@ -262,12 +262,38 @@ bio.display = function() {
 		for (skill in bio.skills) {
 			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 			$("#header").append(formattedSkill);
+		}
 	}
 }
 
+// display work experience
+work.display = function display() {
+	// iterate through the jobs array, append each new job to work experience node
+	for (job in work.jobs) {
 
+		// create the div for this job -- its class is "work-entry"
+		$("#workExperience").append(HTMLworkStart);
+
+		// add job info to the "work-entry" node
+		// employerband job title
+		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		$(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle);
+
+		// dates
+		var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		$(".work-entry:last").append(formattedWorkDates);
+
+		// location
+		var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		$(".work-entry:last").append(formattedWorkLocation);
+
+		// description
+		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		$(".work-entry:last").append(formattedWorkDescription);
+	}
 }
 
 // DISPLAY THE RESUME
-	bio.display();		// biographical data
-
+bio.display();		// biographical data
+work.display();
