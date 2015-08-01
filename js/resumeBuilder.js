@@ -22,8 +22,7 @@ var bio = {
     	"Tools: Photoshop, Illustrator, InDesign, Eclipse, Xcode, Balsamiq",
 		"Languages: HTML, CSS, Javascript"
 	],
-	"bioPic" : "images/j-keith-thomson.jpg",
-	"display" : "display"
+	"bioPic" : "images/j-keith-thomson.jpg"
 }
 
 // Education info
@@ -60,7 +59,6 @@ var education = {
 			"url" : "http://udacity.com"
 		}
 	],
-	"display" : "display"
 }
 
 // Employment info
@@ -211,8 +209,8 @@ var projects = {
 	]
 }
 
-// CREATE THE DISPLAY FUNCTIONS FOR EACH JSON
-// biographical info
+// CREATE THE DISPLAY FUNCTIONS FOR EACH JSON OBJECT
+// function to display biographical info
 bio.display = function() {
 	// prepend name and role in reverse order so the text appears above #topContacts
 	// job role
@@ -266,16 +264,16 @@ bio.display = function() {
 	}
 }
 
-// display work experience
+// function to display work experience
 work.display = function display() {
 	// iterate through the jobs array, append each new job to work experience node
 	for (job in work.jobs) {
 
-		// create the div for this job -- its class is "work-entry"
+		// create the div wrapper for this job -- its class is "work-entry"
 		$("#workExperience").append(HTMLworkStart);
 
-		// add job info to the "work-entry" node
-		// employerband job title
+		// add job info to the last "work-entry" node
+		// employer and job title
 		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 		var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 		$(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle);
@@ -294,6 +292,35 @@ work.display = function display() {
 	}
 }
 
-// DISPLAY THE RESUME
-bio.display();		// biographical data
-work.display();
+// function to display projects
+projects.display = function() {
+	// iterate through the projects array, append each project
+	for (project in projects.projects) {
+
+		// create the div wrapper for this project -- its class is "project-entry"
+		$("#projects").append(HTMLprojectStart);
+
+		// project title
+		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(formattedProjectTitle);
+
+		// project dates
+		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(formattedProjectDates);
+
+		// project description
+		var formattedProjectDescription = HTMLworkDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedProjectDescription);
+
+		// add the images for this project
+		for (image in projects.projects[project].images) {
+			var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+			$(".project-entry:last").append(formattedProjectImage);
+		}
+	}
+}
+
+// DISPLAY THE RESUME BY CALLING THE DISPLAY FUNCTIONS
+bio.display();			// biographical data
+work.display();			// employment history
+projects.display();		// prjects
