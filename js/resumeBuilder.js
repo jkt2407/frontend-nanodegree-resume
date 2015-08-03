@@ -109,105 +109,130 @@ var work = {
 	]
 }
 
+
 // Project info
 var projects = {
 	"projects" : [
 		{
-			"title" : "AllPlay Jukebox",
+			"title" : "AllPlay Jukebox - Android",
 			"dates" : "2013 - 2015",
-			"description" : "Android and iOS apps that allow multiple users to stream music to up to ten AllPlay-enabled speakers from a LAN or cloud-based streaming service.",
+			"description" : "Android app that allows multiple users to stream music to up to ten AllPlay-enabled speakers from a LAN or cloud-based streaming service.",
+			"imagePercent" : "10%",
 			"images" : [
-				"image/allplay-jukebox-1.jpg",
-				"image/allplay-jukebox-2.jpg",
-				"image/allplay-jukebox-3.jpg",
-				"image/allplay-jukebox-4.jpg"
+				"images/01-01-allplay-jukebox-android.png",
+				"images/01-02-allplay-jukebox-android.png",
+				"images/01-03-allplay-jukebox-android.png",
+				"images/01-04-allplay-jukebox-android.png",
+				"images/01-05-allplay-jukebox-android.png",
+				"images/01-06-allplay-jukebox-android.png",
+				"images/01-07-allplay-jukebox-android.png",
+				"images/01-08-allplay-jukebox-android.png",
 			]
 		},
 		{
-			"title" : "AllPlay Radio",
+			"title" : "AllPlay Jukebox - iOS",
 			"dates" : "2013 - 2015",
-			"description" : "Android and iOS apps that stream Internet radio to AllPlay speakers.",
+			"description" : "iOS version of AllPlay Jukebox.",
+			"imagePercent" : "10%",
 			"images" : [
-				"image/allplay-radio-1.jpg",
-				"image/allplay-radio-2.jpg",
-				"image/allplay-radio-3.jpg",
-				"image/allplay-radio-4.jpg"
+				"images/02-01-allplay-jukebox-ios.png",
+				"images/02-02-allplay-jukebox-ios.png",
+				"images/02-03-allplay-jukebox-ios.png",
+				"images/02-04-allplay-jukebox-ios.png",
+				"images/02-05-allplay-jukebox-ios.png",
+				"images/02-06-allplay-jukebox-ios.png",
+				"images/02-07-allplay-jukebox-ios.png",
+				"images/02-08-allplay-jukebox-ios.png",
 			]
 		},
 		{
-			"title" : "AllPlay Sample Apps",
+			"title" : "AllPlay Radio -- Android",
 			"dates" : "2013 - 2015",
-			"description" : "Android and iOS sample apps and documentation for the AllPlay Click SDK (Software Development Kit) and AllPlay Controller SDK.",
+			"description" : "Android app that streams Internet radio to AllPlay speakers",
+			"imagePercent" : "10%",
 			"images" : [
-				"image/allplay-sample-app-1.jpg",
-				"image/allplay-sample-app-2.jpg",
-				"image/allplay-sample-app-3.jpg",
-				"image/allplay-sample-app-4.jpg"
+				"images/03-01-allplay-radio-android.png",
+				"images/03-02-allplay-radio-android.png",
+				"images/03-03-allplay-radio-android.png",
+				"images/03-04-allplay-radio-android.png",
+				"images/03-05-allplay-radio-android.png",
+				"images/03-06-allplay-radio-android.png",
+				"images/03-07-allplay-radio-android.png",
+				"images/03-08-allplay-radio-android.png"
 			]
 		},
 		{
-			"title" : "Luminaire",
-			"dates" : "2014",
-			"description" : "Android app that emulates an AllJoyn-enabled LED light bulb.",
+			"title" : "AllPlay Radio - iOS",
+			"dates" : "2013 - 2015",
+			"description" : "iOS versioan of Allplay Radio",
+			"imagePercent" : "10%",
 			"images" : [
-				"image/allplay-luminaire-1.jpg",
-				"image/allplay-luminaire-2.jpg",
-				"image/allplay-luminaire-3.jpg",
-				"image/allplay-luminaire-4.jpg"
-			]
-		},
-		{
-			"title" : "AllJoyn Lighting Services Sample App",
-			"dates" : "2014",
-			"description" : "Android and iOS sample apps that demonstrate use of the AllJoyn Lighting Services API.",
-			"images" : [
-				"image/allplay-alljoyn-1.jpg",
-				"image/allplay-alljoyn-2.jpg",
-				"image/allplay-alljoyn-3.jpg",
-				"image/allplay-alljoyn-4.jpg"
-			]
-		},
-		{
-			"title" : "AlPlay Documentation",
-			"dates" : "2014 - 2015",
-			"description" : "As 'AllPlay Documentation Czar,'' managed all the documentation for the AllPlay software SDKs, hardware SDK and CDK (Customer Development Kit).",
-			"images" : [
-				"image/allplay-documentation-1.jpg",
-				"image/allplay-documentation-2.jpg",
-				"image/allplay-documentation-3.jpg",
-				"image/allplay-documentation-4.jpg"
-			]
-		},
-		{
-			"title" : "Orb Music and Orb Video",
-			"dates" : "2010 - 2013",
-			"description" : "Android and iOS apps for remote control of Orb's Wi-Fi streaming devices.",
-			"images" : [
-				"image/orb-music-1.jpg",
-				"image/orb-music-2.jpg",
-				"image/orb-video-1.jpg",
-				"image/orb-video-2.jpg"
+				"images/04-01-allplay-radio-ios.png",
+				"images/04-02-allplay-radio-ios.png",
+				"images/04-04-allplay-radio-ios.png",
+				"images/04-04-allplay-radio-ios.png",
+				"images/04-05-allplay-radio-ios.png",
+				"images/04-06-allplay-radio-ios.png",
+				"images/04-07-allplay-radio-ios.png",
+				"images/04-08-allplay-radio-ios.png"
 			]
 		},
 		{
 			"title" : "Orb BR",
 			"dates" : "2012 - 2013",
 			"description" : "A BD-Live app that runs on a Blu-ray player and lets you stream Internet audio and video to your TV.",
+			"imagePercent" : "20%",
 			"images" : [
-				"image/orb-br-1.jpg",
-				"image/orb-br-2.jpg"
+				"images/05-01-orb-br.png",
+				"images/05-02-orb-br.png",
+				"images/05-02-orb-br.png",
+				"images/05-02-orb-br.png"
 			]
 		},
 		{
 			"title" : "Home Automation Demo",
 			"dates" : "2012",
 			"description" : "Android prototype app for home automation, including control of HVAC, lights, door locks, etc.",
+			"imagePercent" : "10%",
 			"images" : [
-				"image/orb-home-automation.jpg"
+				"images/06-01-home-automation.png",
+				"images/06-02-home-automation.png",
+				"images/06-03-home-automation.png",
+				"images/06-04-home-automation.png",
+				"images/06-05-home-automation.png",
+				"images/06-06-home-automation.png",
+				"images/06-07-home-automation.png"
+			]
+		},
+		{
+
+			"title" : "Pinnacle Studio",
+			"dates" : "1997 - 2007",
+			"description" : "Home video editing app",
+			"imagePercent" : "20%",
+			"images" : [
+				"images/07-01-pinnacle-studio.png",
+				"images/07-02-pinnacle-studio.png",
+				"images/07-03-pinnacle-studio.png",
+				"images/07-04-pinnacle-studio.png"
+			]
+		},
+		{
+
+			"title" : "Lego Studios",
+			"dates" : "2000 - 2004",
+			"description" : "Lego version of Pinnacle Studio, endorsed by Steven Spielberg",
+			"imagePercent" : "20%",
+			"images" : [
+				"images/08-01-lego-studios.jpg",
+				"images/08-02-lego-studios.png",
+				"images/08-03-lego-studios.png",
+				"images/08-04-lego-studios.png"
 			]
 		}
 	]
 }
+
 
 // CREATE THE DISPLAY FUNCTIONS FOR EACH JSON OBJECT
 // function to display biographical info
@@ -312,10 +337,14 @@ projects.display = function() {
 		var formattedProjectDescription = HTMLworkDescription.replace("%data%", projects.projects[project].description);
 		$(".project-entry:last").append(formattedProjectDescription);
 
+		// create div wrapper for images
+		$(".project-entry:last").append(HTMLprojectImagesWrapper);
+
 		// add the images for this project
 		for (image in projects.projects[project].images) {
 			var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-			$(".project-entry:last").append(formattedProjectImage);
+			$(".images-wrapper:last").append(formattedProjectImage);
+			$(".images-wrapper:last img").width(projects.projects[project].imagePercent);
 		}
 	}
 }
