@@ -353,3 +353,7 @@ projects.display = function() {
 bio.display();			// biographical data
 work.display();			// employment history
 projects.display();		// prjects
+
+
+// add map parent node
+$("#mapDiv").append(googleMap);
