@@ -100,6 +100,7 @@ See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
 var map;    // declares a global map variable
+var infoWindow; // keep infoWindow in global scope so there's only oneƒ
 
 
 /*
@@ -118,7 +119,7 @@ function initializeMap() {
   appended to #mapDiv in resumeBuilder.js.
   */
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-
+  infoWindow = new google.maps.InfoWindow();
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -147,6 +148,37 @@ function initializeMap() {
     return locations;
   }
 
+  /* getMapMarkerDescription takes the name of a location as it appears in
+  the bio, work or education data and returns a string describing whether
+  the person lived, worked or went to school there. */
+  function getMapMarkerDescription(name) {
+
+    var desc = "";
+
+    // check the bio data to see if the person currently lives here
+    if (name === bio.contacts.location) {
+      desc += "<p>I currently live here.</p>"
+    }
+
+    // iterates through school locations and looks for a match
+    // the locations array
+    for (var school in education.schools) {
+      if (name === education.schools[school].location) {
+        desc += "<p>I went to " + education.schools[school].name + " here in " + education.schools[school].dates + ".<p>";
+      }
+    }
+
+    // iterates through work locations and looks for a match
+    for (var job in work.jobs) {
+      if (name === work.jobs[job].location) {
+        desc += "I worked at " + work.jobs[job].employer + " here in " + work.jobs[job].dates + ".</p>";
+      }
+    }
+
+    return desc;
+  }
+
+
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
   placeData is the object returned from search results containing information
@@ -167,16 +199,25 @@ function initializeMap() {
       title: name
     });
 
-    // infoWindows are the little helper windows that open when you click
-    // or hover over a pin on a map. They usually contain more information
-    // about a location.
-    var infoWindow = new google.maps.InfoWindow({
-      content: name
-    });
+    // strip off ", USA" from Google-supplied city names
+    // TODO: need a better way to ensure locations from our JSON data match google's
+    var strippedName = name.replace(", USA", "");
 
-    // hmmmm, I wonder what this is about...
+    // get description of location based on JSON data, append it to location name
+    var description = getMapMarkerDescription(strippedName);
+    var content = '<div><h4>' + name + '</h4></div>' + description;
+
+    // show info window on click of marker
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+
+      // close infowindow
+      infoWindow.close();
+
+      // set new content
+      infoWindow.setContent(content);
+
+      // show infoWindow
+      infoWindow.open(map,marker);
     });
 
     // this is where the pin actually gets added to the map.
