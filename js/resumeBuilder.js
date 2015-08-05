@@ -37,7 +37,7 @@ var education = {
 				"Information Design",
 				"Documentation Design"
 			],
-			"dates" : "2006",
+			"dates" : 2006,
 			"url" : "http://cooper.com"
 		},
 		{
@@ -47,7 +47,7 @@ var education = {
 			"majors" : [
 				"Mathematics"
 			],
-			"dates" : "1974",
+			"dates" : 1974,
 			"url" : "http://cornell.edu"
 		}
 	],
@@ -55,7 +55,7 @@ var education = {
 		{
 			"title" : "Front-End Web Development",
 			"school" : "Udacity",
-			"dates" : "2015",
+			"dates" : 2015,
 			"url" : "http://udacity.com"
 		}
 	],
