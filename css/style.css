@@ -11,7 +11,7 @@ h5,
 h6 {
   padding:0;
   margin:0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'PT Serif', serif;
 }
 
 .clear-fix {
@@ -24,11 +24,19 @@ h6 {
   padding: 0 5%;
 }
 
+/* main screen is at most 1024 pixels wide */
+#main {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
 h1 {
+  font-family: "Lato",sans-serif;
   font-size: 40px;
-  color: #f5a623;
+  font-style: normal;
+  color: #00c8ff;
   line-height: 48px;
-  display: inline;
+  display: block;
 }
 
 h2 {
@@ -61,6 +69,15 @@ h5 {
 
 }
 
+#topContacts {
+  padding: 20px 0 0 0;
+}
+
+#topContacts li {
+  font-family: "Lato",sans-serif;
+  font-style: normal;
+  font-size: 15px;
+}
 
 .date-text {
   font-style: italic;
@@ -76,7 +93,6 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -109,12 +125,12 @@ a {
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #aaa;
 }
 
 .white-text {
   font-weight: bold;
-  color: #fff;
+  color: #666;
 }
 
 .gray {
@@ -129,16 +145,26 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #aaa;  ;
+  background-color: #fff;
+}
+
+#nameWrapper {
+  float: left;
+  padding: 20px;
 }
 
 .flex-box {
   display: -webkit-flex;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+  float: right;
 }
 
 .center-content {
@@ -150,14 +176,11 @@ ul {
 }
 
 .biopic {
+  display: block;
   float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
-}
-
-img {
-  padding: 10px;
+  max-width: 80px;
+  width: 8%;
+  height: auto;
 }
 
 span {
@@ -176,18 +199,12 @@ span {
   }
 }
 
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
 @media only screen and (max-width: 750px) {
   #lets-connect {
     margin-top: 10%;
   }
   .biopic {
-    width: 150px;
+    display: none;
   }
   .welcome-message {
     display: none;
@@ -207,8 +224,7 @@ span {
 }
 
 @media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
+  #skills-h3 {
     display: block;
   }
 }

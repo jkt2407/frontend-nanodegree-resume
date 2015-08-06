@@ -235,14 +235,24 @@ var projects = {
 // CREATE THE DISPLAY FUNCTIONS FOR EACH JSON OBJECT
 // function to display biographical info
 bio.display = function() {
-	// prepend name and role in reverse order so the text appears above #topContacts
-	// job role
-	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-	$("#header").prepend(formattedRole);
+	// we put our own div around name and role so we can float both left
+	$("#header").prepend('<div id="nameWrapper"> </div>');
 
+	// append name and role to wrapper div
 	// name
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
-	$("#header").prepend(formattedName);
+	$("#nameWrapper").append(formattedName);
+
+	// role -- note that we removed the horizontal rule from under the subtitle
+	// (we will add it back in below)
+	var formattedRole = HTMLhxeaderRole.replace("%data%", bio.role);
+	formattedRole = formattedRole.replace("<hr/>", "");
+	console.log(formattedRole);
+	$("#nameWrapper").append(formattedRole);
+
+	// prepend bio photo so it appears at top left
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+	$("#header").prepend(formattedBioPic);
 
 	// append bullet items to #topContacts
 	// mobile phone number
@@ -265,11 +275,10 @@ bio.display = function() {
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	$("#topContacts").append(formattedLocation);
 
- 	// append picture, welcome message and list of skills to #topContacts
-	// picture
-	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-	$("#header").append(formattedBioPic);
+	// add a blank div to clear up all that floating, followed by an h-rule
+	$("#header").append('<div style="clear: both;"></div><hr/>');
 
+ 	// append welcome message and list of skills to #header node
 	// welcome message
 	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 	$("#header").append(formattedWelcomeMessage);
