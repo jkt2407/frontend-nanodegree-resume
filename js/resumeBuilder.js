@@ -245,7 +245,7 @@ bio.display = function() {
 
 	// role -- note that we removed the horizontal rule from under the subtitle
 	// (we will add it back in below)
-	var formattedRole = HTMLhxeaderRole.replace("%data%", bio.role);
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	formattedRole = formattedRole.replace("<hr/>", "");
 	console.log(formattedRole);
 	$("#nameWrapper").append(formattedRole);
