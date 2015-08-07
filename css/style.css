@@ -1,5 +1,5 @@
 * {
-/*    border: 1px solid red !important; */
+  /*border: 1px solid red !important; */
 }
 
 * {
@@ -21,9 +21,11 @@ h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   font-family: 'PT Serif', serif;
+  font-size: 14px;
+  color: #666;
 }
 
 .clear-fix {
@@ -42,6 +44,7 @@ h6 {
   margin: 0 auto;
 }
 
+/* h1 is used for the name of the person at the top of the page */
 h1 {
   font-family: "Lato",sans-serif;
   font-size: 40px;
@@ -51,25 +54,28 @@ h1 {
   display: block;
 }
 
+/* h2 is used in the header of our main sections: Work, Projects, Education, etc. */;
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #red;
   line-height: 29px;
   padding: 10px;
 }
 
+/* h3 is used in the header of our minor sections: Welcome, Skills */
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: magenta;
   line-height: 22px;
 }
 
+/* h4 is used inthe title of the popup window when you tap a map marker */
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4a4a4a;
+  color: cyan;
   line-height: 17px;
 }
 
@@ -81,6 +87,24 @@ h5 {
 
 }
 
+p {
+  margin-top: 10px;
+}
+
+a {
+  color: #1199c3;
+  text-decoration: none;
+  margin-top: 10px;
+  display: block
+  ;
+}
+hr {
+  margin: 10px 0 20px 0;
+  background-color: #bbb;
+  border-color: #bbb;
+  border-width: 1px;
+}
+
 #topContacts {
   padding: 20px 0 0 0;
 }
@@ -89,7 +113,6 @@ h5 {
   font-family: "Lato",sans-serif;
   font-style: normal;
   font-size: 14px;
-  line-height: 10px;
 }
 
 .date-text {
@@ -100,7 +123,6 @@ h5 {
   float: left;
 }
 
-
 .location-text {
   font-style: italic;
   font-size: 14px;
@@ -109,29 +131,38 @@ h5 {
   float: right;
 }
 
-p {
-  font-size: 14px;
-  color: #333;
-  line-height: 21px;
+/* these classese are used in the Welcome and Skills sections of the resume */
+#welcome-wrapper, #skills-wrapper {
+  width: 45%;
+  display: inline;
 }
 
-a {
-  color: #1199c3;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
+#welcome-wrapper {
+  float: left;
 }
 
-.welcome-message {
+#skills-wrapper {
+  float: right;
+}
+
+#welcome-h3, #skills-h3 {
+  font-size: 20px;
   font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
-  line-height: 28px;
+  font-weight: bold;
+  color: #00c8ff;
+  padding: 0;
 }
 
-#skills-h3 {
-  color: #f5ae23;
-  display: none;
+#skills-wrapper li {
+  padding-bottom: 15px;
+}
+
+.skill-label {
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  font-color: #bbb;
 }
 
 .orange {
@@ -188,9 +219,6 @@ a {
   padding: 2.5% 5%;
 }
 
-ul {
-  list-style-type: none;
-}
 
 .biopic {
   display: block;
@@ -201,7 +229,7 @@ ul {
 }
 
 span {
-  padding: 5px;
+  padding: 0;
 }
 
 #lets-connect {
@@ -225,12 +253,11 @@ span {
   }
   #topContacts li {
     font-size: 12px;
-    line-height: 8px;
   }
 }
 
 @media only screen and (max-width: 760px) {
-  #lets-connect {
+  #lets-connecQt {
     margin-top: 10%;
   }
   .biopic {
@@ -265,7 +292,6 @@ span {
   #topContacts li {
     float: none;
     text-align: center;
-    line-height: 10px;
   }
   .orange-text {
     float: left;
@@ -291,7 +317,9 @@ span {
 }
 
 @media only screen and (min-width: 750px) {
+/*
   #skills-h3 {
     display: block;
   }
+  */
 }

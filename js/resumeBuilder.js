@@ -15,12 +15,39 @@ var bio = {
 		"twitter" : "@keiththomson",
 		"location" : "Belmont, CA"
 	},
-	"welcomeMessage" : "Welcome to my resume website",
+	"welcomeMessage" : '<h3 id="welcome-h3">“It’s hard to make things easy!”</h3> \
+						<p>Welcome, all! Speaking of making things easy, there isn’t \
+						a UX designer on the planet who hasn’t had this thought at one \
+						time or another. It can be a struggle sometimes.</p> \
+						<p>But that’s what we live for, right? Designing apps and \
+						hopefully making them tolerable enough — dare I say “fun”? — \
+						that our users (and ourselves) want to spend time with them.</p> \
+						<p>How do we do it? Well, if it’s not quite an art and it’s not quite a science, \
+						it definitely requires both disciplines. And perhaps therein lies the attraction — we get to use both our left \
+						brain <em>and</em> our right brain at the same time. Every day.</p> \
+						<p>One thing’s for sure: I was born to do this. I have been designing apps \
+						since long before anyone thought to deem it a professsion in its own right. \
+						And I will continue to practice my craft as long \
+						as I can still push a pixel across a screen — or whatever the \
+						natural-language-parsing, gesture-recognizing, haptic-feedback-producing \
+						UX of the future might require.</p> \
+						<p> Heck, I do this for fun on my own time!</p>',
+
+	"skillsMessage" : "<p>I’ve been involved in the design and development of software \
+						applications since the days of Windows 3.0, if not longer.  \
+						Along the way I’ve worked with most of the major operating systems and \
+						software development platforms. I've also had the chance to enhance my \
+						innate design sensibilities with a rigorous goal-directed design methodology.</p>",
+
 	"skills" : [
-	    "OS experience: Windows, OS X, Android, iOS, Flash. Adobe Air, Set-top boxes",
-    	"Skills: User-centered design, ethnographic research, personas, usability testing",
-    	"Tools: Photoshop, Illustrator, InDesign, Eclipse, Xcode, Balsamiq",
-		"Languages: HTML, CSS, Javascript"
+    	'<span class="skill-label">Skills</span><br /> \
+    		User-centered design, ethnographic research, personas, usability testing',
+    	'<span class="skill-label">Tools</span><br /> \
+    		Photoshop, Illustrator, InDesign, Eclipse, Xcode, Balsamiq',
+	    '<span class="skill-label">Operating systems</span><br /> \
+	    	Windows, OS X, Android, iOS, Flash, Adobe Air, proprietary set-top boxes',
+		'<span class="skill-label">Languages</span><br /> \
+			HTML, CSS, Javascript, C++'
 	],
 	"bioPic" : "images/j-keith-thomson.jpg"
 }
@@ -278,21 +305,35 @@ bio.display = function() {
 	// add a blank div to clear up all that floating, followed by an h-rule
 	$("#header").append('<div style="clear: both;"></div><hr/>');
 
- 	// append welcome message and list of skills to #header node
-	// welcome message
+ 	// append a wrapper div for welcome message
+	$("#header").append('<div id="welcome-wrapper"> </div>');
 	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-	$("#header").append(formattedWelcomeMessage);
+	$("#welcome-wrapper").append(formattedWelcomeMessage);
 
 	// skills -- only display if the list of skills is not empty
 	if (bio.skills.length > 0) {
-		// display skill header
-		$("#header").append(HTMLskillsStart);
+
+		// add skill header to DOM - we use a wrapper div for responsiveness' sake
+		$("#header").append('<div id="skills-wrapper"> </div>');
+
+		// sneak a little extra text in between the title and content of skills section
+		var str = HTMLskillsStart;
+		str = str.replace(":", "");	/* lose the colon */
+		str = str.replace("<ul ", bio.skillsMessage + "<ul ");
+
+		$("#skills-wrapper").append(str);
 
 		// display skills one at a time
 		for (var skill in bio.skills) {
 			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-			$("#header").append(formattedSkill);
+			/* remove the white-text class from the string, we don't want it */
+			formattedSkill = formattedSkill.replace('class="white-text"', "");
+			$("#skills").append(formattedSkill);
 		}
+	}
+	// if the list of skills is empty, jst show the welcome message full width
+	else {
+		$("welcome-wrapper").css('width', '100%');
 	}
 }
 
