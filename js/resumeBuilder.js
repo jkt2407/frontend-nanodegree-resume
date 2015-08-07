@@ -395,8 +395,11 @@ projects.display = function() {
 		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
 		$(".project-entry:last").append(formattedProjectDates);
 
+		// clear the float
+		$(".project-entry:last").append('<div class="clear-float"></div>');
+
 		// project description
-		var formattedProjectDescription = HTMLworkDescription.replace("%data%", projects.projects[project].description);
+		var formattedProjectDescription = HTMLworkDescription.replace("<br>%data%", projects.projects[project].description);
 		$(".project-entry:last").append(formattedProjectDescription);
 
 		// create div wrapper for images
