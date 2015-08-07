@@ -219,11 +219,11 @@ hr {
   padding: 10px;
 /*  float: right;*/
 }
-
+/*
 .center-content {
   padding: 2.5% 5%;
 }
-
+*/
 
 .biopic {
   display: block;
@@ -299,7 +299,7 @@ span {
     text-align: left;
     float: none;
   }
-  #skills-wrapper {
+  #welcome-wrapper {
     margin-bottom: 20px;
   }
 }
