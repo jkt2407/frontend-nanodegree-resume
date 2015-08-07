@@ -1,5 +1,5 @@
 * {
-  /*border: 1px solid red !important; */
+/*  border: 1px solid red !important;*/
 }
 
 * {
@@ -136,7 +136,7 @@ hr {
 /* these classese are used in the Welcome and Skills sections of the resume */
 #welcome-wrapper, #skills-wrapper {
   width: 45%;
-  display: inline;
+  display: block;
 }
 
 #welcome-wrapper {
@@ -176,6 +176,7 @@ hr {
   color: #ccc;
   float: right;
   margin-left: 15px;
+  margin-right: 15px;
   text-transform: uppercase;
 }
 
@@ -216,7 +217,7 @@ hr {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
-  float: right;
+/*  float: right;*/
 }
 
 .center-content {
@@ -260,18 +261,6 @@ span {
   }
 }
 
-@media only screen and (max-width: 760px) {
-  #lets-connecQt {
-    margin-top: 10%;
-  }
-  .biopic {
-    display: none;
-  }
-  .welcome-message {
-    display: none;
-  }
-}
-
 /* whenn we get below 760 pixels or so we start losing items
    and centering others */
 @media only screen and (max-width: 760px) {
@@ -287,7 +276,7 @@ span {
     text-align: center;
   }
   #topContacts {
-    width: 200px;
+    width: 250px;
     margin: 0 auto;
     text-align: center;
     float: none;
@@ -298,13 +287,20 @@ span {
     text-align: center;
   }
   .orange-text {
+    text-transform: none;
     float: left;
   }
   .white-text {
     float: left;
   }
-  .welcome-message {
-    display: none;
+  #welcome-wrapper,
+  #skills-wrapper {
+    width: 100%;
+    text-align: left;
+    float: none;
+  }
+  #skills-wrapper {
+    margin-bottom: 20px;
   }
 }
 
