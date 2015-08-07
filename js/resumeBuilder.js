@@ -22,22 +22,24 @@ var bio = {
 						<p>But that’s what we live for, right? Designing apps and \
 						hopefully making them tolerable enough — dare I say “fun”? — \
 						that our users (and ourselves) want to spend time with them.</p> \
-						<p>How do we do it? Well, if it’s not quite an art and it’s not quite a science, \
-						it definitely requires both disciplines. And perhaps therein lies the attraction — we get to use both our left \
+						<p>How do we do it? Well, it’s not quite an art and it’s \
+						not quite a science, but it definitely draws from both disciplines. \
+						And therein lies the attraction — we get to use both our left \
 						brain <em>and</em> our right brain at the same time. Every day.</p> \
-						<p>One thing’s for sure: I was born to do this. I have been designing apps \
-						since long before anyone thought to deem it a professsion in its own right. \
-						And I will continue to practice my craft as long \
-						as I can still push a pixel across a screen — or whatever the \
-						natural-language-parsing, gesture-recognizing, haptic-feedback-producing \
-						UX of the future might require.</p> \
+						<p>One thing’s for sure: I was born to do this. I have been \
+						designing apps since long before anyone thought to annoint it \
+						a professsion in its own right. And I will continue to practice \
+						my craft as long as I can still push a pixel across a screen — or \
+						whatever the natural-language-parsing, gesture-recognizing, \
+						haptic-feedback-producing UX of the future might require.</p> \
 						<p> Heck, I do this for fun on my own time!</p>',
 
 	"skillsMessage" : "<p>I’ve been involved in the design and development of software \
-						applications since the days of Windows 3.0, if not longer.  \
-						Along the way I’ve worked with most of the major operating systems and \
-						software development platforms. I've also had the chance to enhance my \
-						innate design sensibilities with a rigorous goal-directed design methodology.</p>",
+						applications since the days of Windows 3.0, if not earlier.  \
+						Along the way I’ve worked with most of the major operating \
+						systems and software development platforms. I've also had \
+						the chance to enhance my innate empathy for users and eye for \
+						design with a rigorous goal-directed design methodology.</p>",
 
 	"skills" : [
     	'<span class="skill-label">Skills</span><br /> \
