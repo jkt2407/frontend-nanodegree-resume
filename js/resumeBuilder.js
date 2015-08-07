@@ -337,8 +337,8 @@ bio.display = function() {
 	else {
 		$("welcome-wrapper").css('width', '100%');
 	}
-	// add a hrizontal rule beneath the welcome and skills sectiosn
-	$("#header").append('<div style="clear: both;"></div><hr/>');
+	// add a horizontal rule beneath the welcome and skills sectiosn
+	$("#header").append('<div class="clear-float"></div><hr/>');
 }
 
 // function to display work experience
@@ -374,6 +374,9 @@ work.display = function display() {
        var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
        $(".work-entry:last").append(formattedWorkDescription);
    }
+
+	// add a horizontal rule beneath the Work sectiosn
+	$("#workExperience").append('<div class="clear-float"></div><hr/>');
 }
 
 // function to display projects
@@ -406,6 +409,9 @@ projects.display = function() {
 			$(".images-wrapper:last img").width(projects.projects[project].imagePercent);
 		}
 	}
+
+	// add a horizontal rule beneath the Projects sectiosn
+	$("#projects").append('<div class="clear-float"></div><hr/>');
 }
 
 // function to display education

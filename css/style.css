@@ -56,10 +56,12 @@ h1 {
 
 /* h2 is used in the header of our main sections: Work, Projects, Education, etc. */;
 h2 {
+  font-family: "Lato",sans-serif;
+  font-size: 20px;
   font-weight: bold;
-  font-size: 24px;
-  line-height: 29px;
-  padding: 10px;
+  color: #00c8ff;
+  padding: 0;
+  margin-bottom: 20px;
 }
 
 /* h3 is used in the header of our minor sections: Welcome, Skills */
@@ -81,7 +83,6 @@ h3,
 h4,
 h5 {
   padding:10px 5%;
-
 }
 
 p {
@@ -119,15 +120,18 @@ hr {
   list-style-type: none;
 }
 
-/* these classes are used in the Work Experience secion */
-#workExperience h2 {
+/* header class for Work, Projects and Education sections */
+#workExperience h2,
+#projects h2,
+#education h2 {
   font-family: "Lato",sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: #00c8ff;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
+/* these classes are used in the Work Experience secion */
 .employer-wrapper {
   font-family: "Lato",sans-serif;
   font-size: 16px;
@@ -164,7 +168,7 @@ hr {
   float: left;
 }
 
-/* these classese are used in the Welcome and Skills sections of the resume */
+/* these classes are used in the Welcome and Skills sections */
 #welcome-wrapper, #skills-wrapper {
   width: 45%;
   display: block;
@@ -220,7 +224,6 @@ hr {
 
 /* and gray ain't gray, either! */
 .gray {
-  padding-bottom: 10px;
   clear:both;
 }
 
