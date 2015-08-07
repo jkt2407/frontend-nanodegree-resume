@@ -98,10 +98,11 @@ a {
   display: block
   ;
 }
+
 hr {
   margin: 10px 0 20px 0;
-  background-color: #bbb;
-  border-color: #bbb;
+  background-color: #eee;
+  border-color: #eee;
   border-width: 1px;
 }
 
@@ -113,6 +114,7 @@ hr {
   font-family: "Lato",sans-serif;
   font-style: normal;
   font-size: 14px;
+  list-style-type: none;
 }
 
 .date-text {
@@ -173,6 +175,8 @@ hr {
 .orange-text {
   color: #ccc;
   float: right;
+  margin-left: 15px;
+  text-transform: uppercase;
 }
 
 /* similarly, this is no longer white */

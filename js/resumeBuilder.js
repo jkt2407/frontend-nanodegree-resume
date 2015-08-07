@@ -335,6 +335,8 @@ bio.display = function() {
 	else {
 		$("welcome-wrapper").css('width', '100%');
 	}
+	// add a hrizontal rule beneath the welcome and skills sectiosn
+	$("#header").append('<div style="clear: both;"></div><hr/>');
 }
 
 // function to display work experience
