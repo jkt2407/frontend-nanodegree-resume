@@ -131,24 +131,28 @@ hr {
   margin-bottom: 10px;
 }
 
-/* these classes are used in the Work Experience secion */
-.employer-wrapper {
+/* these classes are used in the Work Experience and Education sections */
+.employer-wrapper,
+.school-wrapper {
   font-family: "Lato",sans-serif;
   font-size: 16px;
   color: #333;
   float: left;
 }
 
+.education-entry p,
 .work-entry p {
   margin: 2px 0 30px 0;
 }
 
+.school-text,
 .employer-text {
   text-transform: uppercase;
   font-weight: bold;
   display: inline;
 }
 
+.major-text
 .position-text {
   display: inline;
 }
@@ -165,7 +169,15 @@ hr {
   font-size: 14px;
   color: #999;
   display: block;
-  float: left;
+/*z  float: left; */
+}
+
+/* these classes are used in the Education section only */
+.education-entry h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #00c8ff;
+  padding: 0 0 10px 0;
 }
 
 /* these classes are used in the Welcome and Skills sections */
@@ -182,7 +194,8 @@ hr {
   float: right;
 }
 
-#welcome-h3, #skills-h3 {
+#welcome-h3,
+#skills-h3 {
   font-size: 20px;
   font-style: italic;
   font-weight: bold;
@@ -349,12 +362,4 @@ span {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
-}
-
-@media only screen and (min-width: 750px) {
-/*
-  #skills-h3 {
-    display: block;
-  }
-  */
 }

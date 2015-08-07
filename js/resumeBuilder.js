@@ -371,7 +371,7 @@ work.display = function display() {
        $(".work-entry:last").append(formattedWorkLocation);
 
        // description
-       var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+       var formattedWorkDescription = HTMLworkDescription.replace("<br>%data%", work.jobs[job].description);
        $(".work-entry:last").append(formattedWorkDescription);
    }
 
@@ -426,14 +426,22 @@ education.display = function() {
 		// iterate through the schools array, append each school
 		for (var school in education.schools) {
 
-			// school name and degree
-			var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
-			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-			$(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
+			// add school info to the last "education-entry" node
 
-			// greaduation date
+			// school and degree - we wrap with a div and spans to give us more control
+			var formattedSchoolName = '<div class="school-wrapper"><span class="school-text">';
+			formattedSchoolName += HTMLschoolName.replace("%data%", education.schools[school].name);
+			formattedSchoolName += '</span><span class="degree-text">';
+			formattedSchoolName += HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+			formattedSchoolName += '</span></div>';
+			$(".education-entry:last").append(formattedSchoolName);
+
+			// graduation date
 			var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 			$(".education-entry:last").append(formattedSchoolDates);
+
+			// clear the floats from above
+			$(".education-entry:last").append('<div class="clear-float"></div>');
 
 			// location
 			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
@@ -457,9 +465,12 @@ education.display = function() {
 						major_names += ", ";
 					}
 				}
-
-				formattedMajorsString = formattedMajorsString.replace("%data%", major_names)
-				$(".education-entry:last").append(formattedMajorsString);
+				/* lose the <br> and <em> tags while we're at it */
+				formattedMajorsString = formattedMajorsString.replace("%data%", major_names);
+				formattedMajorsString = formattedMajorsString.replace("<br>", "");
+				formattedMajorsString = formattedMajorsString.replace("<em>", "");
+				formattedMajorsString = formattedMajorsString.replace("</em>", "");
+				$(".education-entry:last").append("<p>" + formattedMajorsString) + "</p>";
 			}
 		}
 
@@ -471,10 +482,14 @@ education.display = function() {
 				$(".education-entry:last").append(HTMLonlineClasses);
 			}
 
-			// online course name and school
-			var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
-			var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
-			$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+			// school and degree - we wrap with a div and spans to give us more control
+			var formattedOnlineSchool = '<div class="school-wrapper"><span class="school-text">';
+			formattedOnlineSchool += HTMLonlineSchool.replace(" - %data%", education.onlineCourses[course].school);
+			formattedOnlineSchool += " - ";
+			formattedOnlineSchool += '</span><span class="course-text">';
+			formattedOnlineSchool += HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+			formattedOnlineSchool += '</span></div>';
+			$(".education-entry:last").append(formattedOnlineSchool);
 
 			// online date
 			var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
@@ -482,8 +497,11 @@ education.display = function() {
 
 			// online url
 			var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
-			$(".education-entry:last").append(formattedOnlineURL);
+			$(".education-entry:last").append("<p>" + formattedOnlineURL + "</p>");
 		}
+
+		// add a horizontal rule beneath the education section
+		$("#education").append('<div class="clear-float"></div><hr/>');
 	}
 }
 
