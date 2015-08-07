@@ -58,7 +58,6 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #red;
   line-height: 29px;
   padding: 10px;
 }
@@ -67,15 +66,13 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: magenta;
   line-height: 22px;
 }
 
-/* h4 is used inthe title of the popup window when you tap a map marker */
+/* h4 is used in the title of the popup window when you tap a map marker */
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: cyan;
   line-height: 17px;
 }
 
@@ -92,18 +89,23 @@ p {
 }
 
 a {
-  color: #1199c3;
+  color: #333;
   text-decoration: none;
   margin-top: 10px;
-  display: block
-  ;
+/*  display: block; *** this was preventing inline display for text-employer */
 }
 
 hr {
   margin: 10px 0 20px 0;
-  background-color: #eee;
-  border-color: #eee;
-  border-width: 1px;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #aaa;
+}
+
+/* for clearing the float */
+.clear-float {
+  clear: both;
 }
 
 #topContacts {
@@ -117,20 +119,49 @@ hr {
   list-style-type: none;
 }
 
+/* these classes are used in the Work Experience secion */
+#workExperience h2 {
+  font-family: "Lato",sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #00c8ff;
+  margin-bottom: 20px;
+}
+
+.employer-wrapper {
+  font-family: "Lato",sans-serif;
+  font-size: 16px;
+  color: #333;
+  float: left;
+}
+
+.work-entry p {
+  margin: 2px 0 30px 0;
+}
+
+.employer-text {
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline;
+}
+
+.position-text {
+  display: inline;
+}
+
 .date-text {
   font-style: italic;
   font-size: 14px;
   color: #999;
-  line-height: 16px;
-  float: left;
+  float: right;
 }
 
 .location-text {
   font-style: italic;
   font-size: 14px;
   color: #999;
-  line-height: 16px;
-  float: right;
+  display: block;
+  float: left;
 }
 
 /* these classese are used in the Welcome and Skills sections of the resume */
@@ -187,8 +218,8 @@ hr {
   float: right;
 }
 
+/* and gray ain't gray, either! */
 .gray {
-  background-color: #f3f3f3;
   padding-bottom: 10px;
   clear:both;
 }
@@ -199,8 +230,9 @@ hr {
 
 /* TODO: Replace with image later */
 #header {
-  color: #aaa;  ;
+  color: #aaa;
   background-color: #fff;
+  padding: 0 5%;
 }
 
 #nameWrapper {

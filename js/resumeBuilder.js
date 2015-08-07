@@ -348,14 +348,21 @@ work.display = function display() {
        $("#workExperience").append(HTMLworkStart);
 
        // add job info to the last "work-entry" node
-       // employer and job title
-       var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-       var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-       $(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle);
+
+       // employer and job title - we wrap with a div and spans to give us more control
+       var formattedWorkEmployer = '<div class="employer-wrapper"><span class="employer-text">';
+       formattedWorkEmployer += HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+       formattedWorkEmployer += '</span><span class="position-text">';
+       formattedWorkEmployer += HTMLworkTitle.replace("%data%", work.jobs[job].title);
+       formattedWorkEmployer += '</span></div>';
+       $(".work-entry:last").append(formattedWorkEmployer);
 
        // dates
        var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
        $(".work-entry:last").append(formattedWorkDates);
+
+       // clear the floats from above
+	   $(".work-entry:last").append('<div class="clear-float"></div>');
 
        // location
        var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
