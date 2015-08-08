@@ -376,16 +376,19 @@ work.display = function display() {
    }
 
 	// add a horizontal rule beneath the Work sectiosn
-	$("#workExperience").append('<div class="clear-float"></div><hr/>');
+	$("#work").append('<div class="clear-float"></div><hr class="hr90"/>');
 }
 
 // function to display projects
 projects.display = function() {
+	// create the container for our flex items */
+	$("#projects").append('<div id="project-container"></div>');
+
 	// iterate through the projects array, append each project
 	for (var project in projects.projects) {
 
 		// create the div wrapper for this project -- its class is "project-entry"
-		$("#projects").append(HTMLprojectStart);
+		$("#project-container").append(HTMLprojectStart);
 
 		// project title
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -399,22 +402,27 @@ projects.display = function() {
 		$(".project-entry:last").append('<div class="clear-float"></div>');
 
 		// project description
-		var formattedProjectDescription = HTMLworkDescription.replace("<br>%data%", projects.projects[project].description);
-		$(".project-entry:last").append(formattedProjectDescription);
-
+//		var formattedProjectDescription = HTMLworkDescription.replace("<br>%data%", projects.projects[project].description);
+//		$(".project-entry:last").append(formattedProjectDescription);
+//
 		// create div wrapper for images
 		$(".project-entry:last").append(HTMLprojectImagesWrapper);
 
-		// add the images for this project
-		for (var image in projects.projects[project].images) {
-			var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-			$(".images-wrapper:last").append(formattedProjectImage);
-			$(".images-wrapper:last img").width(projects.projects[project].imagePercent);
-		}
+		// add the thumbnail for this project
+		var image = 0;
+		var imageString = '<div class="thumbnail" style="background-image: url(' + "'%data%'" + ')")></div>';
+		imageString = imageString.replace("%data%", projects.projects[project].images[image]);
+
+		$(".images-wrapper:last").append(imageString);
+//		for (var image in projects.projects[project].images) {
+//			var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+//			$(".images-wrapper:last").append(formattedProjectImage);
+//			$(".images-wrapper:last img").width(projects.projects[project].imagePercent);
+//		}
 	}
 
 	// add a horizontal rule beneath the Projects sectiosn
-	$("#projects").append('<div class="clear-float"></div><hr/>');
+	$("#projects").append('<div class="clear-float"></div><hr class="hr90"/>');
 }
 
 // function to display education
@@ -504,7 +512,7 @@ education.display = function() {
 		}
 
 		// add a horizontal rule beneath the education section
-		$("#education").append('<div class="clear-float"></div><hr/>');
+		$("#education").append('<div class="clear-float"></div><hr class="hr90"/>');
 	}
 }
 

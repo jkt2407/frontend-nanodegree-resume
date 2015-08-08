@@ -1,5 +1,5 @@
-
 /*
+
 * {
  border: 1px solid red !important;
 }
@@ -13,6 +13,7 @@
 
 */
 
+project
 
 body,
 div,
@@ -109,6 +110,11 @@ hr {
   border-top: 1px solid #aaa;
 }
 
+.hr90 {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
 /* for clearing the float */
 .clear-float {
   clear: both;
@@ -188,8 +194,27 @@ hr {
 }
 
 /* these classes are used in the Projects section */
+
+/* this is the flex container for the projeect thumbnails*/
+#project-container {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* this is for each flex child item */
+.project-entry {
+  width: 30%;
+  padding: 10px;
+  text-align: center;
+}
+
 .project-entry p {
   margin: 2px 0 10px 0;
+
 }
 
 .project-entry a {
@@ -198,17 +223,26 @@ hr {
   text-transform: uppercase;
   font-weight: 700;
   color: #333;
-  float: left;
-  margin-top: 0;
-  display: inline;
+}
+
+.project-entry .date-text {
+  color: 333;
+  display: block;
+  float: none;
 }
 
 .images-wrapper {
-  margin-bottom: 30px;
+
 }
 
 .thumbnail  {
-  margin-right: 10px;
+  width: 270px;
+  height: 270px;
+  overflow: hidden;
+  margin: 5px auto;
+  border: 2px solid #bbb;
+  background-position: center center;
+  background-size: cover;
 }
 
 /* these classes are used in the Welcome and Skills sections */
