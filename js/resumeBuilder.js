@@ -376,7 +376,7 @@ work.display = function display() {
    }
 
 	// add a horizontal rule beneath the Work sectiosn
-	$("#work").append('<div class="clear-float"></div><hr class="hr90"/>');
+	$("#workExperience").append('<div class="clear-float"></div><hr class="hr90"/>');
 }
 
 // function to display projects
