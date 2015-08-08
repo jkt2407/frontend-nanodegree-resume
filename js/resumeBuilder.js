@@ -381,14 +381,15 @@ work.display = function display() {
 
 // function to display projects
 projects.display = function() {
-	// create the container for our flex items */
-	$("#projects").append('<div id="project-container"></div>');
+	// create the containers for our flex items */
+	$("#projects").append('<div id="projects-outer"></div>');
+	$("#projects-outer").append('<div id="projects-container"></div>');
 
 	// iterate through the projects array, append each project
 	for (var project in projects.projects) {
 
 		// create the div wrapper for this project -- its class is "project-entry"
-		$("#project-container").append(HTMLprojectStart);
+		$("#projects-container").append(HTMLprojectStart);
 
 		// project title
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -398,22 +399,22 @@ projects.display = function() {
 		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
 		$(".project-entry:last").append(formattedProjectDates);
 
-		// clear the float
-		$(".project-entry:last").append('<div class="clear-float"></div>');
+//		// clear the float
+//		$(".project-entry:last").append('<div class="clear-float"></div>');
 
 		// project description
 //		var formattedProjectDescription = HTMLworkDescription.replace("<br>%data%", projects.projects[project].description);
 //		$(".project-entry:last").append(formattedProjectDescription);
 //
 		// create div wrapper for images
-		$(".project-entry:last").append(HTMLprojectImagesWrapper);
+//		$(".project-entry:last").append(HTMLprojectImagesWrapper);
 
 		// add the thumbnail for this project
 		var image = 0;
 		var imageString = '<div class="thumbnail" style="background-image: url(' + "'%data%'" + ')")></div>';
 		imageString = imageString.replace("%data%", projects.projects[project].images[image]);
 
-		$(".images-wrapper:last").append(imageString);
+		$(".project-entry:last").append(imageString);
 //		for (var image in projects.projects[project].images) {
 //			var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 //			$(".images-wrapper:last").append(formattedProjectImage);
