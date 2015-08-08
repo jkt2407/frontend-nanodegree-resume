@@ -207,7 +207,7 @@ hr {
 
 /* this is for each flex child item */
 .project-entry {
-  width: 30%;
+  width: 270px;
   padding: 10px;
   text-align: center;
 }
