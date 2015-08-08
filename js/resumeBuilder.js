@@ -381,9 +381,8 @@ work.display = function display() {
 
 // function to display projects
 projects.display = function() {
-	// create the containers for our flex items */
-	$("#projects").append('<div id="projects-outer"></div>');
-	$("#projects-outer").append('<div id="projects-container"></div>');
+	// create the container for our flex items */
+	$("#projects").append('<div id="projects-container"></div>');
 
 	// iterate through the projects array, append each project
 	for (var project in projects.projects) {
@@ -517,11 +516,126 @@ education.display = function() {
 	}
 }
 
-// DISPLAY THE RESUME BY CALLING THE DISPLAY FUNCTIONS
+function setupSlideshow(project) {
+
+	// get current client rect
+	var h = $(window).height();
+	var w = $(window).width();
+
+	// set slideshow bgd to cover it
+//	$("#slideshow-container").css("top", 0);
+	$("#slideshow-container").css("height", h);
+//	$("#slideshow-container").css("left", 0);
+	$("#slideshow-container").css("width", w);
+}
+
+/* enable/disable the slideshow */
+var slideshowEnabled = false;
+
+function enableSlideshow(enable) {
+	if (enable === slideshowEnabled) {
+		return;
+	}
+	// shows or hides the mask and clears the DOM
+	if (enable) {
+		$("#slideshow-container").css("display", "block");
+	} else {
+		$("#slideshow-bjqs").empty();
+		$("#slideshow-container").css("display", "none");
+	}
+	slideshowEnabled = enable;
+}
+
+function startSlideshow(thumb) {
+
+	// get url of thumbnail
+	var thumbBgd = $(thumb).css('background-image');
+	console.log("thumbBgd = " + thumbBgd);
+
+	// run through our array of projects
+	for (var proj in projects.projects) {
+
+		// if this project's first thumbnail matches thumbBgd...
+		var filename = projects.projects[proj].images[0];
+		if (thumbBgd.search(filename) >= 0) {	// TODO: this could be more robust
+//			console.log("GOT IT!!!!!");
+
+			// set up for slideshow
+			setupSlideshow(projects.projects[proj]);
+
+			// append slideshow node to container
+			$("#slideshow-bjqs").append('<ul class="bjqs"></ul>');
+
+			// append array of slides to that
+			for (var image in projects.projects[proj].images) {
+				filename = projects.projects[proj].images[image];
+				$(".bjqs").append('<li><img src="' + filename + '"></li>');
+			}
+
+			// compute slideshow window size
+			var ssHeight = 480; //$(window).height();
+			var ssWidth  = 640; //$(window).width();
+
+			// turn on the elements
+			enableSlideshow(true);
+
+			// attach the plug-in to the slideshow parent element and set params
+			jQuery(document).ready(function($) {
+
+				$('#slideshow-bjqs').bjqs({
+					// set slideshow parameters
+					width : ssWidth,
+					height : ssHeight,
+
+					// animation values
+					animtype : 'fade', // accepts 'fade' or 'slide'
+					animduration : 450, // how fast the animation are
+					animspeed : 4000, // the delay between each slide
+					automatic : true, // automatic
+
+					// control and marker configuration
+					showcontrols : true, // show next and prev controls
+					centercontrols : true, // center controls verically
+					nexttext : 'Next', // Text for 'next' button (can use HTML)
+					prevtext : 'Prev', // Text for 'previous' button (can use HTML)
+					showmarkers : true, // Show individual slide markers
+					centermarkers : true, // Center markers horizontally
+
+					// interaction values
+					keyboardnav : true, // enable keyboard navigation
+					hoverpause : true, // pause the slider on hover
+
+					// presentational options
+					usecaptions : true, // show captions for images using the image title tag
+					randomstart : false, // start slider at random slide
+					responsive : true // enable responsive capabilities (beta)
+
+				});
+			});
+
+			break;
+		}
+	}
+}
+
+
+/* HERE'S WHERE THE REAL WORK GETS DONE! */
+
+// display the resume by filling in all four section
 bio.display();			// biographical data
 work.display();			// employment history
 projects.display();		// projects
 education.display();	// schools and online courses
 
-// DISPLAY THE MAP
+// display the map
 $("#mapDiv").append(googleMap);
+
+// start a slideeshow if a thumbnai is clicked
+$(".thumbnail").click(function() {
+	startSlideshow(this);
+});
+
+// stop slideshow if container div is clicked
+$("#slideshow-container").click(function() {
+	enableSlideshow(false);
+});
