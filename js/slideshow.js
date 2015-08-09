@@ -106,7 +106,7 @@ function startSlideshow(thumb) {
 
 					// control and marker configuration
 					showcontrols : true, // show next and prev controls
-					centercontrols : false, // center controls verically
+					centercontrols : true, // center controls verically
 					nexttext : ' > ', // Text for 'next' button (can use HTML)
 					prevtext : ' < ', // Text for 'previous' button (can use HTML)
 					showmarkers : true, // Show individual slide markers
