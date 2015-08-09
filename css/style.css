@@ -13,8 +13,6 @@
 
 */
 
-project
-
 body,
 div,
 ul,
@@ -310,7 +308,6 @@ hr {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
 #header {
   color: #aaa;
   background-color: #fff;
@@ -331,13 +328,7 @@ hr {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
-/*  float: right;*/
 }
-/*
-.center-content {
-  padding: 2.5% 5%;
-}
-*/
 
 .biopic {
   display: block;
@@ -433,20 +424,18 @@ span {
 
 /* these classes are used for the slideshow */
 #slideshow-container {
-  position:fixed;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,.3);
-  top:0;
-  left:0;
-  display:none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.8);
+  top: 0;
+  left: 0;
+  display: none;
 }
 
 #slideshow-bjqs {
-  margin: 0 5%;
 }
 
-*/
 #container {
   max-width: 620px;
   margin: 0 auto;

@@ -516,19 +516,6 @@ education.display = function() {
 	}
 }
 
-function setupSlideshow(project) {
-
-	// get current client rect
-	var h = $(window).height();
-	var w = $(window).width();
-
-	// set slideshow bgd to cover it
-//	$("#slideshow-container").css("top", 0);
-	$("#slideshow-container").css("height", h);
-//	$("#slideshow-container").css("left", 0);
-	$("#slideshow-container").css("width", w);
-}
-
 /* enable/disable the slideshow */
 var slideshowEnabled = false;
 
@@ -560,9 +547,6 @@ function startSlideshow(thumb) {
 		if (thumbBgd.search(filename) >= 0) {	// TODO: this could be more robust
 //			console.log("GOT IT!!!!!");
 
-			// set up for slideshow
-			setupSlideshow(projects.projects[proj]);
-
 			// append slideshow node to container
 			$("#slideshow-bjqs").append('<ul class="bjqs"></ul>');
 
@@ -573,8 +557,29 @@ function startSlideshow(thumb) {
 			}
 
 			// compute slideshow window size
-			var ssHeight = 480; //$(window).height();
-			var ssWidth  = 640; //$(window).width();
+			// get aspect ratio of first slide in show
+			var img = new Image;
+			img.src = $(thumb).css('background-image').replace(/url\(|\)$/ig, "");
+			var bgWidth = img.width;
+			var bgHeight = img.height;
+	        var bgAspect = bgWidth / bgHeight;
+	        var vwWidth = parseInt( $("#slideshow-container").css("width") );
+	        var vwHeight = parseInt( $("#slideshow-container").css("height") );
+			console.log("bw=" + bgWidth + ", bh=" + bgHeight + ", bgAspect=" + bgAspect);
+			console.log("vw=" + vwWidth + ", vh=" + vwHeight);
+        	var ssHeight = 480;
+        	var ssWidth = 640;
+			console.log("sw=" + ssWidth + ", sh=" + ssHeight);
+	        if (bgAspect < 1) {
+	        	// potrait - maximize height
+	        	ssHeight = 0.75 * vwHeight;
+	        	ssWidth = ssHeight * bgAspect;
+			} else {
+				// landscape, maximize width
+				ssWidth = 0.75 * vwWidth;
+				ssHeight = ssWidth / bgAspect;
+			}
+			console.log("sw=" + ssWidth + ", sh=" + ssHeight);
 
 			// turn on the elements
 			enableSlideshow(true);
@@ -618,7 +623,6 @@ function startSlideshow(thumb) {
 	}
 }
 
-
 /* HERE'S WHERE THE REAL WORK GETS DONE! */
 
 // display the resume by filling in all four section
@@ -636,6 +640,10 @@ $(".thumbnail").click(function() {
 });
 
 // stop slideshow if container div is clicked
-$("#slideshow-container").click(function() {
-	enableSlideshow(false);
+$("#slideshow-container").click(function(e) {
+	// make sure the event didn't bubble up from a button
+	var senderID = e.target.id;
+	if (senderID === 'slideshow-container') {
+		enableSlideshow(false);
+	}
 });
