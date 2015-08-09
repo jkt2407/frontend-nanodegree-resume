@@ -1,4 +1,4 @@
-/*
+7/*
 	Keith Thomson - Udacity Nanodegree in Front End Web Development
 	Project #2 - Resume
 */
@@ -154,7 +154,6 @@ var projects = {
 				"images/01-05-allplay-jukebox-android.png",
 				"images/01-06-allplay-jukebox-android.png",
 				"images/01-07-allplay-jukebox-android.png",
-				"images/01-08-allplay-jukebox-android.png",
 			]
 		},
 		{
@@ -170,7 +169,6 @@ var projects = {
 				"images/02-05-allplay-jukebox-ios.png",
 				"images/02-06-allplay-jukebox-ios.png",
 				"images/02-07-allplay-jukebox-ios.png",
-				"images/02-08-allplay-jukebox-ios.png",
 			]
 		},
 		{
@@ -252,7 +250,7 @@ var projects = {
 			"description" : "Lego version of Pinnacle Studio, endorsed by Steven Spielberg",
 			"imagePercent" : "20%",
 			"images" : [
-				"images/08-01-lego-studios.jpg",
+				"images/08-01-lego-studios.png",
 				"images/08-02-lego-studios.png",
 				"images/08-03-lego-studios.png",
 				"images/08-04-lego-studios.png"
