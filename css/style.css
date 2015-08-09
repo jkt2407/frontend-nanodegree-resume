@@ -436,6 +436,23 @@ span {
 #slideshow-bjqs {
 }
 
+#slideshow-description {
+  position:fixed;
+  left: 0;
+  top: 0;
+  height: 44px;
+  padding: 2% 5%;
+  font-family: "Lato",sans-serif;
+  color: #ccc;
+  font-size: 18px;
+  font-weight:normal;
+  text-align: center;
+}
+
+#slideshow-caption-title {
+  color: #cc0;
+}
+
 #container {
   max-width: 620px;
   margin: 0 auto;
@@ -479,4 +496,4 @@ ol.bjqs-markers li a:hover{
 p.bjqs-caption{
   background: rgba(255,255,255,0.5);
 }
-*/
+

@@ -144,7 +144,9 @@ var projects = {
 		{
 			"title" : "AllPlay Jukebox - Android",
 			"dates" : "2013 - 2015",
-			"description" : "Android app that allows multiple users to stream music to up to ten AllPlay-enabled speakers from a LAN or cloud-based streaming service.",
+			"description" : "an audio streaming app that allows multiple users to stream \
+							music to up to ten AllPlay-enabled speakers from a LAN or \
+							cloud-based streaming service.",
 			"imagePercent" : "10%",
 			"images" : [
 				"images/01-01-allplay-jukebox-android.png",
@@ -159,7 +161,7 @@ var projects = {
 		{
 			"title" : "AllPlay Jukebox - iOS",
 			"dates" : "2013 - 2015",
-			"description" : "iOS version of AllPlay Jukebox.",
+			"description" : "the iOS version of AllPlay Jukebox.",
 			"imagePercent" : "10%",
 			"images" : [
 				"images/02-01-allplay-jukebox-ios.png",
@@ -172,9 +174,9 @@ var projects = {
 			]
 		},
 		{
-			"title" : "AllPlay Radio -- Android",
+			"title" : "AllPlay Radio - Android",
 			"dates" : "2013 - 2015",
-			"description" : "Android app that streams Internet radio to AllPlay speakers",
+			"description" : "an audio app that streams Internet radio to AllPlay speakers",
 			"imagePercent" : "10%",
 			"images" : [
 				"images/03-01-allplay-radio-android.png",
@@ -190,7 +192,7 @@ var projects = {
 		{
 			"title" : "AllPlay Radio - iOS",
 			"dates" : "2013 - 2015",
-			"description" : "iOS versioan of Allplay Radio",
+			"description" : "the iOS versioan of Allplay Radio",
 			"imagePercent" : "10%",
 			"images" : [
 				"images/04-01-allplay-radio-ios.png",
@@ -206,7 +208,9 @@ var projects = {
 		{
 			"title" : "Orb BR",
 			"dates" : "2012 - 2013",
-			"description" : "A BD-Live app that runs on a Blu-ray player and lets you stream Internet audio and video to your TV.",
+			"description" : "a BD-Live app that runs on a Blu-ray player \
+							and lets you stream Internet audio and video \
+							to your TV.",
 			"imagePercent" : "20%",
 			"images" : [
 				"images/05-01-orb-br.png",
@@ -218,7 +222,8 @@ var projects = {
 		{
 			"title" : "Home Automation Demo",
 			"dates" : "2012",
-			"description" : "Android prototype app for home automation, including control of HVAC, lights, door locks, etc.",
+			"description" : "an Android prototype app for home automation, \
+							including control of HVAC, lights, door locks, etc.",
 			"imagePercent" : "10%",
 			"images" : [
 				"images/06-01-home-automation.png",
@@ -234,7 +239,7 @@ var projects = {
 
 			"title" : "Pinnacle Studio",
 			"dates" : "1997 - 2007",
-			"description" : "Home video editing app",
+			"description" : "a popular home video editing app",
 			"imagePercent" : "20%",
 			"images" : [
 				"images/07-01-pinnacle-studio.png",
@@ -247,7 +252,8 @@ var projects = {
 
 			"title" : "Lego Studios",
 			"dates" : "2000 - 2004",
-			"description" : "Lego version of Pinnacle Studio, endorsed by Steven Spielberg",
+			"description" : "the Legoized version of Pinnacle Studio, \
+							endorsed by Steven Spielberg",
 			"imagePercent" : "20%",
 			"images" : [
 				"images/08-01-lego-studios.png",
@@ -396,27 +402,12 @@ projects.display = function() {
 		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
 		$(".project-entry:last").append(formattedProjectDates);
 
-//		// clear the float
-//		$(".project-entry:last").append('<div class="clear-float"></div>');
-
-		// project description
-//		var formattedProjectDescription = HTMLworkDescription.replace("<br>%data%", projects.projects[project].description);
-//		$(".project-entry:last").append(formattedProjectDescription);
-//
-		// create div wrapper for images
-//		$(".project-entry:last").append(HTMLprojectImagesWrapper);
-
 		// add the thumbnail for this project
 		var image = 0;
 		var imageString = '<div class="thumbnail" style="background-image: url(' + "'%data%'" + ')")></div>';
 		imageString = imageString.replace("%data%", projects.projects[project].images[image]);
 
 		$(".project-entry:last").append(imageString);
-//		for (var image in projects.projects[project].images) {
-//			var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-//			$(".images-wrapper:last").append(formattedProjectImage);
-//			$(".images-wrapper:last img").width(projects.projects[project].imagePercent);
-//		}
 	}
 
 	// add a horizontal rule beneath the Projects sectiosn

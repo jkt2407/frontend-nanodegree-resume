@@ -17,6 +17,7 @@ function enableSlideshow(enable) {
 		$("#slideshow-container").css("display", "block");
 	} else {
 		$("#slideshow-bjqs").empty();
+		$("#slideshow-description").empty();
 		$("#slideshow-container").css("display", "none");
 	}
 	slideshowEnabled = enable;
@@ -80,12 +81,19 @@ function startSlideshow(thumb) {
 			}
 			$("#slideshow-bjqs").css('left', xOffset);
 
-			// center the slideshow window slightly above center vertically
-			var yOffset = (vwHeight - ssHeight) / 2 - (ssHeight / 8);
+			// center the slideshow window vertically
+			var yOffset = (vwHeight - ssHeight) / 2;
 			if (yOffset < 0) {
 				yOffset = 0;
 			}
 			$("#slideshow-bjqs").css('top', yOffset);
+
+			// add project caption
+			var title= projects.projects[proj].title;
+			var desc = projects.projects[proj].description;
+			var caption = '<span id="slideshow-caption-title">' + title + ': </span>';
+			caption += '<span id="slideshow-caption-description">' + desc + '</span>';
+			$("#slideshow-description").append(caption);
 
 			// show the parent element and mask off the background
 			enableSlideshow(true);
