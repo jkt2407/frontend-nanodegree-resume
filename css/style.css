@@ -77,9 +77,12 @@ h3 {
 
 /* h4 is used in the title of the popup window when you tap a map marker */
 h4 {
+  font-family: "Lato", sans-serif;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 17px;
+  margin: 0 0 0 -10px;
+  padding: 0;
 }
 
 h2,
