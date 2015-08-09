@@ -1,4 +1,4 @@
-7/*
+/*
 	Keith Thomson - Udacity Nanodegree in Front End Web Development
 	Project #2 - Resume
 */
@@ -345,6 +345,31 @@ bio.display = function() {
 	$("#header").append('<div class="clear-float"></div><hr/>');
 }
 
+// function to display footer contacts at bottom
+bio.displayFooter = function() {
+
+	// append contacts to #footerContacts
+	// mobile phone number
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#footerContacts").append(formattedMobile);
+
+	// email address
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	$("#footerContacts").append(formattedEmail);
+
+	// github id
+	var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+	$("#footerContacts").append(formattedGitHub);
+
+	// twitter handle
+	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	$("#footerContacts").append(formattedTwitter);
+
+	// location
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	$("#footerContacts").append(formattedLocation);
+}
+
 // function to display work experience
 work.display = function display() {
    // iterate through the jobs array, append each new job to work experience node
@@ -512,6 +537,7 @@ bio.display();			// biographical data
 work.display();			// employment history
 projects.display();		// projects
 education.display();	// schools and online courses
+bio.displayFooter();	// footer reiterates contacts
 
 // display the map
 $("#mapDiv").append(googleMap);

@@ -292,11 +292,25 @@ hr {
   text-transform: uppercase;
 }
 
+/* damn, had to add this at the last minute to fix footer */
+#footerContacts .orange-text {
+  font-family: "Lato", sans-serif;
+  float: none;
+}
+
 /* similarly, this is no longer white */
 .white-text {
   font-weight: bold;
   color: #888;
   float: right;
+}
+
+/* damn, had to add thisthis too */
+#footerContacts .white-text {
+  font-family: "Lato", sans-serif;
+  float: none;
+  color: #fff;
+  font-weight: normal;
 }
 
 /* and gray ain't gray, either! */
@@ -321,13 +335,30 @@ hr {
   padding: 20px;
 }
 
-.flex-box {
+#topContacts.flex-box {
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+}
+
+#footerContacts.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.center-content {
+  padding: 2.5% 5%;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .biopic {
@@ -342,8 +373,9 @@ span {
   padding: 0;
 }
 
-#lets-connect {
+#lets-connect h2 {
   text-align: center;
+  font-family: "Lato",sans-serif;
 }
 
 /* Media queries to handle various device widths */
