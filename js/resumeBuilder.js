@@ -581,6 +581,20 @@ function startSlideshow(thumb) {
 			}
 			console.log("sw=" + ssWidth + ", sh=" + ssHeight);
 
+			// center the slideshow window horizontally
+			var xOffset = (vwWidth - ssWidth) / 2;
+			if (xOffset < 0) {
+				xOffset = 0;
+			}
+			$("#slideshow-bjqs").css('left', xOffset);
+
+			// center the slideshow window slightly above center vertically
+			var yOffset = (vwHeight - ssHeight) / 2 - (ssHeight / 8);
+			if (yOffset < 0) {
+				yOffset = 0;
+			}
+			$("#slideshow-bjqs").css('top', yOffset);
+
 			// turn on the elements
 			enableSlideshow(true);
 
@@ -600,9 +614,9 @@ function startSlideshow(thumb) {
 
 					// control and marker configuration
 					showcontrols : true, // show next and prev controls
-					centercontrols : true, // center controls verically
-					nexttext : 'Next', // Text for 'next' button (can use HTML)
-					prevtext : 'Prev', // Text for 'previous' button (can use HTML)
+					centercontrols : false, // center controls verically
+					nexttext : '>>', // Text for 'next' button (can use HTML)
+					prevtext : '<<', // Text for 'previous' button (can use HTML)
 					showmarkers : true, // Show individual slide markers
 					centermarkers : true, // Center markers horizontally
 
