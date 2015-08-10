@@ -12,12 +12,19 @@ function enableSlideshow(enable) {
 	if (enable === slideshowEnabled) {
 		return;
 	}
-	// shows or hides the mask and clears the DOM
+	// show the mask and add the wrapper divs to the DOM
 	if (enable) {
+		if (!document.getElementById('slideshow-bjqs')) {
+			$("#slideshow-container").append('<div id="slideshow-bjqs"></div');
+		}
+		if (!document.getElementById('slideshow-description')) {
+			$("#slideshow-container").append('<div id="slideshow-description"></div>');
+		}
 		$("#slideshow-container").css("display", "block");
 	} else {
-		$("#slideshow-bjqs").empty();
-		$("#slideshow-description").empty();
+		// hide the mask and detah the wrapers from the DOM
+		$("#slideshow-bjqs").detach();
+		$("#slideshow-description").detach();
 		$("#slideshow-container").css("display", "none");
 	}
 	slideshowEnabled = enable;
@@ -28,7 +35,7 @@ function startSlideshow(thumb) {
 	// FIGURE OUT WHICH PROJECT THAT THE THHUMBNAIL CAME FROM
 	// get url of thumbnail
 	var thumbBgd = $(thumb).css('background-image');
-	console.log("thumbBgd = " + thumbBgd);
+//	console.log("thumbBgd = " + thumbBgd);
 
 	// run through our array of projects
 	for (var proj in projects.projects) {
@@ -38,6 +45,8 @@ function startSlideshow(thumb) {
 		if (thumbBgd.search(filename) >= 0) {	// TODO: this could be more robust
 
 			// INITIALIZE SLIDESHOW
+			enableSlideshow(true)
+
 			// append slideshow node to container
 			$("#slideshow-bjqs").append('<ul class="bjqs"></ul>');
 
@@ -87,6 +96,12 @@ function startSlideshow(thumb) {
 				yOffset = 0;
 			}
 			$("#slideshow-bjqs").css('top', yOffset);
+
+			// log our calc for debugging
+			console.log("bgWidth=" + bgWidth + " bgHeight=" + bgHeight);
+			console.log("vwWidth=" + vwWidth + " vwHeight=" + vwHeight);
+			console.log("ssWidth=" + ssWidth + " ssHeight=" + ssHeight);
+			console.log("xOffset=" + xOffset + " yOffset=" + yOffset);
 
 			// add project caption
 			var title= projects.projects[proj].title;
