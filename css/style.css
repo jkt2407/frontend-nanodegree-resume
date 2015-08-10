@@ -473,12 +473,11 @@ span {
 
 #slideshow-description {
   position:fixed;
-  left: 0;
   top: 0;
-  height: 44px;
-  padding: 2% 5%;
+  padding: 1% 5%;
   font-family: "Lato",sans-serif;
   color: #ccc;
+  background-color: rgba(0,0,0,.5);
   font-size: 18px;
   font-weight:normal;
   text-align: center;
