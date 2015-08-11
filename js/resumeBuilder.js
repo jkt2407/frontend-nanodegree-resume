@@ -280,7 +280,6 @@ bio.display = function() {
 	// (we will add it back in below)
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	formattedRole = formattedRole.replace("<hr/>", "");
-	console.log(formattedRole);
 	$("#nameWrapper").append(formattedRole);
 
 	// prepend bio photo so it appears at top left
