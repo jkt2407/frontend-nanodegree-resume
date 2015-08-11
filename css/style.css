@@ -1,3 +1,14 @@
+* {
+/*    border: 1px solid red !important; */
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 body,
 div,
 ul,
@@ -264,16 +275,17 @@ hr {
   margin-top: 8px;
 }
 
+// orange is the new black!
 .orange {
-  background-color: #f5ae23;
+  background-color: #000;
 }
 
 /* this is no longer orange but I wanted to keep the helper.js strings intact */
 .orange-text {
   color: #ccc;
   float: right;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 8px;
+  margin-right: 8px;
   text-transform: uppercase;
 }
 
@@ -361,6 +373,7 @@ span {
 #lets-connect h2 {
   text-align: center;
   font-family: "Lato",sans-serif;
+  margin-bottom: 0;
 }
 
 /* these classes are used for the map */
