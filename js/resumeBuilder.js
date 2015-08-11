@@ -87,7 +87,7 @@ var education = {
 			"dates" : 2015,
 			"url" : "http://udacity.com"
 		}
-	],
+	]
 }
 
 // Employment info
