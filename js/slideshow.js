@@ -22,7 +22,7 @@ function enableSlideshow(enable) {
 		}
 		$("#slideshow-container").css("display", "block");
 	} else {
-		// hide the mask and detah the wrapers from the DOM
+		// hide the mask and detach the wrappers from the DOM
 		$("#slideshow-bjqs").detach();
 		$("#slideshow-description").detach();
 		$("#slideshow-container").css("display", "none");
@@ -73,14 +73,31 @@ function startSlideshow(thumb) {
 	        var vwHeight = parseInt( $("#slideshow-container").css("height") );
         	var ssHeight = 480;
         	var ssWidth = 640;
+        	var MAX_VERTICAL_PCT = 0.7; // leave room for top caption and bottom chiclets
+
 	        if (bgAspect < 1) {
-	        	// potrait - maximize height
-	        	ssHeight = 0.75 * vwHeight;
+
+	        	// potrait - try to maximize height, but leave enough room at
+	        	// top and bottom for description and slide picker squares
+	        	ssHeight = MAX_VERTICAL_PCT * vwHeight;
 	        	ssWidth = ssHeight * bgAspect;
+
+	        	// if width is still larger than screen width, scale back so it fits
+	        	if (ssWidth > vwWidth)  {
+	        		ssHeight = ssHeight * (vwWidth / ssWidth);
+	        		sswidth = vwWidth;
+	        	}
 			} else {
-				// landscape, maximize width
-				ssWidth = 0.75 * vwWidth;
+				// landscape, try to maximize width to full screen
+				ssWidth = vwWidth;
 				ssHeight = ssWidth / bgAspect;
+
+				// if height is too tall to leave room at top and bottom
+				// for description and slide picker squares, scale down so it fits
+				if (ssHeight > (MAX_VERTICAL_PCT * vwHeight)) {
+					ssHeight = MAX_VERTICAL_PCT * vwHeight;
+					ssWidth = ssHeight * bgAspect;
+				}
 			}
 
 			// center the slideshow window horizontally
@@ -98,10 +115,10 @@ function startSlideshow(thumb) {
 			$("#slideshow-bjqs").css('top', yOffset);
 
 			// log our calc for debugging
-			console.log("bgWidth=" + bgWidth + " bgHeight=" + bgHeight);
-			console.log("vwWidth=" + vwWidth + " vwHeight=" + vwHeight);
-			console.log("ssWidth=" + ssWidth + " ssHeight=" + ssHeight);
-			console.log("xOffset=" + xOffset + " yOffset=" + yOffset);
+//			console.log("bgWidth=" + bgWidth + " bgHeight=" + bgHeight);
+//			console.log("vwWidth=" + vwWidth + " vwHeight=" + vwHeight);
+//			console.log("ssWidth=" + ssWidth + " ssHeight=" + ssHeight);
+//			console.log("xOffset=" + xOffset + " yOffset=" + yOffset);
 
 			// add project caption
 			var title= projects.projects[proj].title;
